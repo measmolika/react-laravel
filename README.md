@@ -11,6 +11,10 @@
 # In the project root
 docker-compose up --build
 ```
+Visit the page at
+```
+http://localhost:5173
+```
 
 ### Swagger UI is available at:
 ```

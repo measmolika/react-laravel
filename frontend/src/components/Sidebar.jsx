@@ -6,13 +6,7 @@ import { HiOutlineUsers } from "react-icons/hi2";
 
 const Sidebar = () => (
   <aside
-    className="w-full md:w-64 bg-white h-auto mx-4 mb-12"
-    style={{
-      boxShadow: `
-        0 0 1px rgba(23, 26, 31, 0.07),
-        0 0 2px rgba(23, 26, 31, 0.12)
-      `
-    }}
+    className="bg-white h-auto"
   >
     <div className="p-4 text-sm font-medium flex justify-between items-center text-[#565E6C]">
       <span className="work-sans-font font-semibold text-xl">Account Settings</span>

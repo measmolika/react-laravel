@@ -1,23 +1,34 @@
-import React from "react";
-import PersonalDetails from "./PersonalDetails";
-import Security from "./Security";
-import Permissions from "./Permissions";
+import React from 'react';
+import Sidebar from './Sidebar';
+import Header from './Header';
+import Footer from './Footer';
+import ProfileSection from './ProfileSection';
+import BackButton from './BackButton';
+import '../App.css'
+
 
 const ProfilePage = () => (
-  <div className="max-w-5xl pb-4 content-center mx-auto">
-    <h2 className="px-4 work-sans-font font-bold text-[25px] text-[#171A1F]">My Profile</h2>
-    <div className="divide-y divide-[#DEE1E6] max-w-8/10 mx-auto">
-      <div className="py-4">
-        <PersonalDetails />
+  <div className="app-container flex flex-col min-h-screen">
+    <Header />
+    <BackButton />
+    <div className="flex w-full">
+      <div
+        className="hidden md:block md:max-w-[20%] w-full mx-4 mb-12"
+        style={{
+          boxShadow: `
+            0 0 1px rgba(23, 26, 31, 0.07),
+            0 0 2px rgba(23, 26, 31, 0.12)
+          `
+        }}
+      >
+        <Sidebar />
       </div>
-      <div className="py-4">
-        <Security />
-      </div>
-      <div className="py-4">
-        <Permissions />
-      </div>
-      <div className="py-4" ></div>
+      <main className="flex-1 p-4">
+        <ProfileSection />
+      </main>
     </div>
+    <Footer />
   </div>
 )
+
 export default ProfilePage;

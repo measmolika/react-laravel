@@ -6,8 +6,40 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+/**
+ * @OA\Info(
+ *     version="1.0.0",
+ *     title="Authentication API",
+ *     description="API for user registration, login, password change, and logout"
+ * )
+ **/
 class AuthController extends Controller
 {
+    /**
+     * @OA\Post(
+     *     path="/api/register",
+     *     summary="Register a new user",
+     *     tags={"Auth"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"name", "email", "password", "password_confirmation"},
+     *             @OA\Property(property="name", type="string", example="John Doe"),
+     *             @OA\Property(property="email", type="string", example="john@example.com"),
+     *             @OA\Property(property="password", type="string", example="password123"),
+     *             @OA\Property(property="password_confirmation", type="string", example="password123")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="User registered successfully",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="user", type="object"),
+     *             @OA\Property(property="token", type="string", example="abcdef123456")
+     *         )
+     *     )
+     * )
+     */
     public function register(Request $request)
     {
         $fields = $request->validate([
@@ -67,6 +99,25 @@ class AuthController extends Controller
         return response()->json(['user' => $user, 'token' => $token], 200);
     }
 
+    /**
+     * @OA\Post(
+     *     path="/api/change-password",
+     *     summary="Change current user's password",
+     *     tags={"Auth"},
+     *     security={{ "sanctum": {} }},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"current_password", "new_password", "new_password_confirmation"},
+     *             @OA\Property(property="current_password", type="string", example="oldpass123"),
+     *             @OA\Property(property="new_password", type="string", example="newpass456"),
+     *             @OA\Property(property="new_password_confirmation", type="string", example="newpass456")
+     *         )
+     *     ),
+     *     @OA\Response(response=200, description="Password updated successfully"),
+     *     @OA\Response(response=403, description="Current password is incorrect")
+     * )
+     */
     public function changePassword(Request $request)
     {
         $request->validate([
