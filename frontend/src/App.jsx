@@ -4,6 +4,9 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ProfilePage from './components/ProfilePage';
 import BackButton from './components/BackButton';
+import Register from './components/Register';
+import Login from './components/Login';
+import ChangePassword from './components/ChangePassword';
 import './App.css'
 
 
@@ -20,6 +23,9 @@ function App() {
           </main>
         </div>
         <Footer />
+        <Register />
+        <Login />
+        <ChangePassword />
       </div>
     </>
   )
