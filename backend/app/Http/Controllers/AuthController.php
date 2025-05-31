@@ -27,6 +27,28 @@ class AuthController extends Controller
         return response()->json(['user' => $user, 'token' => $token], 201);
     }
 
+    /**
+    * @OA\Post(
+    *     path="/api/login",
+    *     summary="Login user",
+    *     tags={"Auth"},
+    *     @OA\RequestBody(
+    *         required=true,
+    *         @OA\JsonContent(
+    *             required={"email", "password"},
+    *             @OA\Property(property="email", type="string", example="user@example.com"),
+    *             @OA\Property(property="password", type="string", example="secret")
+    *         )
+    *     ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Successful login",
+    *         @OA\JsonContent(
+    *             @OA\Property(property="token", type="string", example="some-token-value")
+    *         )
+    *     )
+    * )
+    **/
     public function login(Request $request)
     {
         $fields = $request->validate([
