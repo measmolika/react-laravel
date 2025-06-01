@@ -20,6 +20,7 @@ class AuthController extends Controller
      *     path="/api/register",
      *     summary="Register a new user",
      *     tags={"Auth"},
+     *     security={ {"sanctum": {} }},
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
@@ -64,6 +65,7 @@ class AuthController extends Controller
     *     path="/api/login",
     *     summary="Login user",
     *     tags={"Auth"},
+    *     security={ {"sanctum": {} }},
     *     @OA\RequestBody(
     *         required=true,
     *         @OA\JsonContent(
