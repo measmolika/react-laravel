@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../../config/api';
 
 
-const Register = () => {
+const Register = ({ setAuthenticated }) => {
   const navigate = useNavigate();
   const [message, setMessage] = useState('');
   const [formData, setFormData] = useState({
@@ -34,6 +34,7 @@ const Register = () => {
       });
       if (res.data && res.data.token) {
         localStorage.setItem('token', res.data.token);
+        setAuthenticated(true); 
         navigate('/profile');
       } else {
         setMessage('Unexpected response from server.');

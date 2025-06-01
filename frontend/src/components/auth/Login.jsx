@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../../config/api';
 
 
-const Login = () => {
+const Login = ({ setAuthenticated }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,6 +19,7 @@ const Login = () => {
       });
       if (res.status === 200) {
         localStorage.setItem('token', res.data.token);
+        setAuthenticated(true); 
         navigate('/profile');
       } else {
         setMessage('Login failed')
