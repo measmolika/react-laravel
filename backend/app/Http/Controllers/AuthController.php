@@ -24,10 +24,10 @@ class AuthController extends Controller
      *         required=true,
      *         @OA\JsonContent(
      *             required={"name", "email", "password", "password_confirmation"},
-     *             @OA\Property(property="name", type="string", example="John Doe"),
-     *             @OA\Property(property="email", type="string", example="john@example.com"),
-     *             @OA\Property(property="password", type="string", example="password123"),
-     *             @OA\Property(property="password_confirmation", type="string", example="password123")
+     *             @OA\Property(property="name", type="string", example="New User"),
+     *             @OA\Property(property="email", type="string", example="user@example.com"),
+     *             @OA\Property(property="password", type="string", example="secret"),
+     *             @OA\Property(property="password_confirmation", type="string", example="secret")
      *         )
      *     ),
      *     @OA\Response(
@@ -76,7 +76,7 @@ class AuthController extends Controller
     *         response=200,
     *         description="Successful login",
     *         @OA\JsonContent(
-    *             @OA\Property(property="token", type="string", example="some-token-value")
+    *             @OA\Property(property="token", type="string", example="abcdef123456")
     *         )
     *     )
     * )
@@ -109,7 +109,7 @@ class AuthController extends Controller
      *         required=true,
      *         @OA\JsonContent(
      *             required={"current_password", "new_password", "new_password_confirmation"},
-     *             @OA\Property(property="current_password", type="string", example="oldpass123"),
+     *             @OA\Property(property="current_password", type="string", example="secret"),
      *             @OA\Property(property="new_password", type="string", example="newpass456"),
      *             @OA\Property(property="new_password_confirmation", type="string", example="newpass456")
      *         )

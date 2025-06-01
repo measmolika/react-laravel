@@ -27,7 +27,7 @@ const PersonalDetails = () => {
 
         <div>
           <div className="inter-font text-sm font-bold text-[#424955]">Email</div>
-          <div className="inter-font text-sm text-[#171A1F]">joleencollins@karieragroup.com</div>
+          <div className="inter-font text-sm text-[#171A1F] break-words">joleencollins@karieragroup.com</div>
         </div>
       </div>
     </div>

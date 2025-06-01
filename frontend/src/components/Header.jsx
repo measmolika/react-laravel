@@ -61,7 +61,7 @@ const Header = () => {
           </button>
         </div>
 
-        <nav className="flex flex-col items-center gap-6 mt-10 text-lg text-[#565E6C]">
+        <nav className="inter-font flex flex-col items-center gap-6 mt-10 text-lg text-[#565E6C]">
           <a href="#" onClick={() => setShowMenu(false)} className="hover:text-blue-600">Home</a>
           <a href="#" onClick={() => setShowMenu(false)} className="hover:text-blue-600">Provider</a>
           <a href="#" onClick={() => setShowMenu(false)} className="hover:text-blue-600">Listing</a>
